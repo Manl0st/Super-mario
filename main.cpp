@@ -1,29 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
+#include <array>
 
-#define mapWidth 80
-#define mapHeight 25
+constexpr int mapWidth = 80;
+constexpr int mapHeight = 25;
 
-char map[mapHeight][mapWidth + 1];
-
+std::array<std::array<char, mapWidth + 1>, mapHeight> map;
 void ClearMap(){
-    for (int i = 0; i < mapWidth; i++){
-        map[0][i] = '.';
-    }
-    map[0][mapWidth] = '\0';
-    for (int j = 1; j < mapHeight; j++){
-        sprintf(map[j], map[0]);
+    for (int i = 0; i < mapHeight; ++i){
+        map[i].fill('.');
+        map[i][mapWidth] = '\0';
     }
 }
 
 void ShowMap(){
-    map[mapHeight - 1][mapHeight - 1] = '\n';
     for (int j = 0; j < mapHeight; j++){
-        printf("%s", map[j]);
+        std::cout << map[j].data() << '\n';
     }
 }
 
 int main(){
     ClearMap();
     ShowMap();
+    getchar();
 }

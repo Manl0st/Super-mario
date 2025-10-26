@@ -2,17 +2,17 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: g++ сборка активного файла",
-            "command": "/usr/bin/g++",
+            "label": "C/C++: g++ сборка активного файла (Windows)",
+            "command": "g++",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${fileDirname}" 
             },
             "problemMatcher": [
                 "$gcc"
@@ -21,7 +21,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Задача создана отладчиком."
+            "detail": "Задача создана для компилятора MinGW/GCC в Windows."
         }
     ],
     "version": "2.0.0"
